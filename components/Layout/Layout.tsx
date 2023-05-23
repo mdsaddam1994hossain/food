@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import BottomTab from "../Footer/BottomTab";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
@@ -12,7 +13,8 @@ const Layout: FC<Props> = ({ children }) => {
       <header>
         <Header />
       </header>
-      <main className="main px-40">{children}</main>
+      <main className="main px-4">{children}</main>
+      <BottomTab />
       <footer>
         <Footer />
       </footer>
