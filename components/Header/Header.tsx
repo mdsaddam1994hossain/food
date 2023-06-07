@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="bg-gray-900 text-white ">
       <div className="container px-4 md:px-auto flex justify-between items-center py-4">
         <div className="flex items-center">
           <img

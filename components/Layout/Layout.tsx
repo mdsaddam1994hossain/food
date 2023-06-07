@@ -10,10 +10,11 @@ type Props = {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <div>
-      <header>
+      <header className="sticky top-0">
         <Header />
       </header>
       <main className="main px-4">{children}</main>
+
       <BottomTab />
       <footer>
         <Footer />
