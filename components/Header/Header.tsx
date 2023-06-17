@@ -1,9 +1,11 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { useContext } from 'react';
+
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -58,6 +60,7 @@ const Header = () => {
           </nav>
 
           <span className="ml-4">Phone Number</span>
+         
         </div>
 
         <div className="md:hidden">

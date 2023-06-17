@@ -10,5 +10,15 @@
     min-height: 86vh;
 }
 
+.theme-light {
+    background: white;
+    color: black;
+  }
+  
+  .theme-dark {
+    background: black;
+    color: white;
+  }
+
 
 
