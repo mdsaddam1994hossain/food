@@ -20,5 +20,12 @@
     color: white;
   }
 
+  .menu {
+    filter: drop-shadow(1px 1px 1px #4700b3);
+    width: 300px;
+  }
+
+  
+
 
 

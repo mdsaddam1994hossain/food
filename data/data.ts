@@ -1,0 +1,85 @@
+import { TProducts } from "./type.data";
+
+
+export const ProductsData : TProducts[] =[
+    {
+     id:1,
+     name:"Pizza",
+     price:250,
+     catagory:"snack",
+     img:"/assets/img/pizza.png",
+     isFav:false
+    },
+    {
+     id:2,
+     name:"Burger",
+     price:200,
+     catagory:"snack",
+     img:"/assets/img/burger.png",
+     isFav:false
+    },
+    {
+     id:3,
+     name:"kacchi",
+     price:350,
+     catagory:"lunch/dinner",
+     img:"/assets/img/kacchi2.png",
+     isFav:false
+    },
+    {
+     id:4,
+     name:"Faluda",
+     price:150,
+     catagory:"snack",
+     img:"/assets/img/faluda2.png",
+     isFav:true
+    },
+    {
+     id:5,
+     name:"Grill",
+     price:170,
+     catagory:"snack",
+     img:"/assets/img/chiken2.png",
+     isFav:false
+    },
+    {
+     id:6,
+     name:"Soup",
+     price:80,
+     catagory:"Breakfast",
+     img:"/assets/img/soup.png",
+     isFav:true
+    },
+    {
+     id:7,
+     name:"Bread",
+     price:50,
+     catagory:"Breakfast",
+     img:"/assets/img/bread.png",
+     isFav:false
+    },
+    {
+     id:8,
+     name:"Milk Shek",
+     price:140,
+     catagory:"Dinner",
+     img:"/assets/img/milk.png",
+     isFav:false
+    },
+    {
+     id:9,
+     name:"Beef",
+     price:450,
+     catagory:"Dinner",
+     img:"/assets/img/beef.png",
+     isFav:false
+    },
+    {
+     id:10,
+     name:"Maton Rezela",
+     price:250,
+     catagory:"Lunch",
+     img:"/assets/img/moton.png",
+     isFav:false
+    },
+]

@@ -1,11 +1,17 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useContext } from 'react';
-
+import { FaLuggageCart } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useAppSelector } from "@/redux/hooks";
+import { Badge } from "flowbite-react";
+import { useRouter } from "next/router";
 
 
 const Header = () => {
+  const {cart} = useAppSelector((state)=>state.app)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -36,11 +42,6 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href="gallery" className="text-gray-300 hover:text-white">
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link
                   href="/contact"
                   className="text-gray-300 hover:text-white"
@@ -59,8 +60,17 @@ const Header = () => {
             </ul>
           </nav>
 
-          <span className="ml-4">Phone Number</span>
-         
+          <span className="ml-4">+880 16744 93677</span>
+        {cart.length > 0 && <motion.button className={`mx-2`} whileTap={{scale:.8}} onClick={()=>{router.push("/cart")}} >
+             <div className="rounded-full w-4 h-4 flex items-center justify-center bg-red-600 ">
+              <p style={{fontSize:"8px"}} color="warning">{cart.length}</p>
+             </div>
+             <FaLuggageCart />
+           
+           
+         </motion.button>}
+
+        
         </div>
 
         <div className="md:hidden">
@@ -104,7 +114,7 @@ const Header = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 right-0 w-1/2 bg-gray-800 h-full transition duration-[3000ms] ease-in-out pt-4 pl-2 ">
+        <div className="md:hidden absolute top-16 right-0 w-1/2 bg-gray-800 h-screen transition duration-[3000ms] ease-in-out pt-4 pl-2 ">
           <nav className="py-2">
             <ul className="flex flex-col space-y-4">
               <li>

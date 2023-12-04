@@ -13,8 +13,7 @@ const Layout: FC<Props> = ({ children }) => {
       <header className="sticky top-0">
         <Header />
       </header>
-      <main className="main px-4">{children}</main>
-
+      <main className="main px-4 md:px-20">{children}</main>
       <BottomTab />
       <footer>
         <Footer />
