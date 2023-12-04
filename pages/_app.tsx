@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout/Layout";
 import { Provider } from 'react-redux'
 import "@/styles/globals.css";
+import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from "next/app";
 import store from "@/redux/store";
 

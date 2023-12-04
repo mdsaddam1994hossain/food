@@ -6,5 +6,6 @@ export interface TProducts {
     catagory: string,
     img:any,
     isFav:boolean,
-    quantity:number
+    quantity:number,
+    unitPrice:number
 }

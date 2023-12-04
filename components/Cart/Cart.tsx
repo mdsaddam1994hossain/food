@@ -1,10 +1,16 @@
 import { useAppSelector } from "@/redux/hooks";
-
+import { ToastContainer } from "react-toastify";
 import React from "react";
 import CartDesign from "./CartDesign";
 
 const CartComponent = () => {
   const { cart } = useAppSelector((state) => state.app);
+
+  let totals = 0;
+
+  cart.forEach((element) => {
+    totals += element.price;
+  });
   return (
     <div className="mx-4 md:mx-20 lg:mx-60 my-8">
       {cart?.length > 0 ? (
@@ -19,6 +25,9 @@ const CartComponent = () => {
           <img src="/assets/img/cart-loader.gif" width="100%" />
         </div>
       )}
+
+      <p className="font-semibold text-right text-lg">Total : {totals}</p>
+     <ToastContainer />
     </div>
   );
 };

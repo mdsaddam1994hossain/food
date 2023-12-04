@@ -9,7 +9,8 @@ export const ProductsData : TProducts[] =[
      catagory:"snack",
      img:"/assets/img/pizza.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:250,
     },
     {
      id:2,
@@ -18,7 +19,8 @@ export const ProductsData : TProducts[] =[
      catagory:"snack",
      img:"/assets/img/burger.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:200,
     },
     {
      id:3,
@@ -27,7 +29,8 @@ export const ProductsData : TProducts[] =[
      catagory:"lunch/dinner",
      img:"/assets/img/kacchi2.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:350,
     },
     {
      id:4,
@@ -36,7 +39,8 @@ export const ProductsData : TProducts[] =[
      catagory:"snack",
      img:"/assets/img/faluda2.png",
      isFav:true,
-     quantity:1
+     quantity:1,
+     unitPrice:150,
     },
     {
      id:5,
@@ -45,7 +49,8 @@ export const ProductsData : TProducts[] =[
      catagory:"snack",
      img:"/assets/img/chiken2.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:170,
     },
     {
      id:6,
@@ -54,7 +59,8 @@ export const ProductsData : TProducts[] =[
      catagory:"Breakfast",
      img:"/assets/img/soup.png",
      isFav:true,
-     quantity:1
+     quantity:1,
+     unitPrice:80,
     },
     {
      id:7,
@@ -63,7 +69,8 @@ export const ProductsData : TProducts[] =[
      catagory:"Breakfast",
      img:"/assets/img/bread.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:50,
     },
     {
      id:8,
@@ -71,7 +78,8 @@ export const ProductsData : TProducts[] =[
      price:140,
      catagory:"Dinner",
      img:"/assets/img/milk.png",
-     isFav:false,quantity:1
+     isFav:false,quantity:1,
+     unitPrice:140,
     },
     {
      id:9,
@@ -79,7 +87,8 @@ export const ProductsData : TProducts[] =[
      price:450,
      catagory:"Dinner",
      img:"/assets/img/beef.png",
-     isFav:false,quantity:1
+     isFav:false,quantity:1,
+     unitPrice:450,
     },
     {
      id:10,
@@ -88,6 +97,7 @@ export const ProductsData : TProducts[] =[
      catagory:"Lunch",
      img:"/assets/img/moton.png",
      isFav:false,
-     quantity:1
+     quantity:1,
+     unitPrice:250,
     },
 ]

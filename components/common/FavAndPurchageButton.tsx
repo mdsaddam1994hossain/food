@@ -4,6 +4,7 @@ import { MdOutlineFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
 import { TProducts } from '@/data/type.data';
 import { addCartItem } from '@/redux/reducer/appslice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ToastContainer, toast } from 'react-toastify';
 
 type Props={
     item:TProducts;
@@ -21,7 +22,10 @@ const FavAndPurchageButton:FC<Props> = ({item,setIsLoading}) => {
         setTimeout(()=>{
           setIsLoading(false)
           if(product){
-            console.log(product,"All ready added in if block")
+            
+            toast.warning('Already added this item!', {
+              autoClose: 1000, // Set the duration in milliseconds (2 seconds in this case)
+            });
            }else{
             dispatch(addCartItem(item))
            }

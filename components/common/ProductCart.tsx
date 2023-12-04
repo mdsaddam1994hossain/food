@@ -4,6 +4,7 @@ import React, { FC, useState } from "react";
 import { motion } from "framer-motion";
 import { MdOutlineFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
 import FavAndPurchageButton from "./FavAndPurchageButton";
+import { Toast } from "flowbite-react";
 
 type Props = {
   index: number;
@@ -29,14 +30,15 @@ const ProductCart: FC<Props> = ({ index, item }) => {
       <FavAndPurchageButton item={item} setIsLoading={setIsLoading}/>
      
       <div className="p-4">
-        <p className="text-center text-lg">{item.name}</p>
-        <p className="text-center text-sm font-bold">DBT {item.price}</p>
+        <p className="text-center text-lg font-bold">{item.name}</p>
+        <p className="text-center text-sm font-semibold">DBT {item.price}</p>
         {isLoading && (
          <div className="relative pb-4">
             <p className="text-center left-[50%] absolute text-sm font-bold transform -translate-x-1/2">Loading...</p>
          </div>
         )}
       </div>
+     
     </div>
   );
 };

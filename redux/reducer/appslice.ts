@@ -24,8 +24,24 @@ const appSlice = createSlice({
     addCartItem: (state, action: PayloadAction<TProducts>) => {
       state.cart = [...state.cart, action.payload]
     },
+    increaseProductQuantity: (state, action) => {
+      const  productId  = action.payload;
+      state.cart = state.cart.map(product =>
+        product.id === productId ? { ...product, quantity: product.quantity + 1,price:product.price + product.unitPrice } : product
+      );
+    },
+    decreaseProductQuantity: (state, action) => {
+      const  productId  = action.payload;
+      state.cart = state.cart.map(product =>
+        product.id === productId ? { ...product, quantity: product.quantity - 1,price:product.price - product.unitPrice } : product
+      );
+    },
+    deleteProduct: (state, action) => {
+      const  productId  = action.payload;
+      state.cart = state.cart.filter(product => product.id !== productId);
+    },
   },
 })
 
-export const { setMobile,addCartItem } = appSlice.actions
+export const { setMobile,addCartItem,increaseProductQuantity,decreaseProductQuantity,deleteProduct } = appSlice.actions
 export default appSlice.reducer
