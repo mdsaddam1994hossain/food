@@ -8,7 +8,8 @@ export const ProductsData : TProducts[] =[
      price:250,
      catagory:"snack",
      img:"/assets/img/pizza.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
     {
      id:2,
@@ -16,7 +17,8 @@ export const ProductsData : TProducts[] =[
      price:200,
      catagory:"snack",
      img:"/assets/img/burger.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
     {
      id:3,
@@ -24,7 +26,8 @@ export const ProductsData : TProducts[] =[
      price:350,
      catagory:"lunch/dinner",
      img:"/assets/img/kacchi2.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
     {
      id:4,
@@ -32,7 +35,8 @@ export const ProductsData : TProducts[] =[
      price:150,
      catagory:"snack",
      img:"/assets/img/faluda2.png",
-     isFav:true
+     isFav:true,
+     quantity:1
     },
     {
      id:5,
@@ -40,7 +44,8 @@ export const ProductsData : TProducts[] =[
      price:170,
      catagory:"snack",
      img:"/assets/img/chiken2.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
     {
      id:6,
@@ -48,7 +53,8 @@ export const ProductsData : TProducts[] =[
      price:80,
      catagory:"Breakfast",
      img:"/assets/img/soup.png",
-     isFav:true
+     isFav:true,
+     quantity:1
     },
     {
      id:7,
@@ -56,7 +62,8 @@ export const ProductsData : TProducts[] =[
      price:50,
      catagory:"Breakfast",
      img:"/assets/img/bread.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
     {
      id:8,
@@ -64,7 +71,7 @@ export const ProductsData : TProducts[] =[
      price:140,
      catagory:"Dinner",
      img:"/assets/img/milk.png",
-     isFav:false
+     isFav:false,quantity:1
     },
     {
      id:9,
@@ -72,7 +79,7 @@ export const ProductsData : TProducts[] =[
      price:450,
      catagory:"Dinner",
      img:"/assets/img/beef.png",
-     isFav:false
+     isFav:false,quantity:1
     },
     {
      id:10,
@@ -80,6 +87,7 @@ export const ProductsData : TProducts[] =[
      price:250,
      catagory:"Lunch",
      img:"/assets/img/moton.png",
-     isFav:false
+     isFav:false,
+     quantity:1
     },
 ]
