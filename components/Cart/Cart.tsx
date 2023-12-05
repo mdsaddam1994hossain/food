@@ -1,5 +1,4 @@
 import { useAppSelector } from "@/redux/hooks";
-import { ToastContainer } from "react-toastify";
 import React from "react";
 import CartDesign from "./CartDesign";
 
@@ -27,7 +26,6 @@ const CartComponent = () => {
       )}
 
       <p className="font-semibold text-right text-lg">Total : {totals}</p>
-     <ToastContainer />
     </div>
   );
 };

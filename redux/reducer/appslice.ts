@@ -3,14 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type InitialState = {
   mobile: boolean,
-  isLogin:boolean,
   cart:TProducts[],
 
 }
 
 const initialState: InitialState = {
   mobile: false,
-  isLogin:false,
   cart:[]
 }
 
