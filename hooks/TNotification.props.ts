@@ -1,5 +1,5 @@
 export interface TNotification {
-    status: any
+    status: "success" | "warning" | "error"
     message: string
     duration: number
   }

@@ -20,7 +20,7 @@ const CartDesign: React.FC<Props> = ({ item }) => {
   let totals = 0;
 
   cart.forEach((element) => {
-    totals += element.price;
+    totals += element?.price;
   });
 
   const onAdd = (productId: number) => {
@@ -61,6 +61,7 @@ const CartDesign: React.FC<Props> = ({ item }) => {
             disabled={item.quantity == 1}
             onClick={() => onRemove(item?.id)}
             whileHover={{ rotate: 1440 }}
+            whileTap={{scale:.8}}
             className="text-lg w-5 rounded-full h-5 bg-white justify-center items-center flex"
           >
             -
@@ -69,6 +70,7 @@ const CartDesign: React.FC<Props> = ({ item }) => {
           <motion.button
             onClick={() => onAdd(item?.id)}
             whileHover={{ rotate: 360 }}
+            whileTap={{scale:.8}}
             className="text-sm w-5 rounded-full h-5 bg-white justify-center items-center flex"
           >
             +
