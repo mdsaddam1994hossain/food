@@ -5,6 +5,8 @@ export interface TUser {
   name?: string;
   email?: string;
   image?: string;
+  address?:string;
+  phone?:string;
 }
 type InitialState = {
   isLogin: boolean;
@@ -15,7 +17,7 @@ type InitialState = {
 const initialState: InitialState = {
   isLogin: false,
   token: "",
-  user: { name: "", email: "", image: "" } || null,
+  user: {name: "", email: "", image: "",address:"",phone:"" } || null,
 };
 
 const userslice = createSlice({
