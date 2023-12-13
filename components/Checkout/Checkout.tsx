@@ -1,24 +1,27 @@
-'use client';
 import { TOrderHistory, TProducts } from "@/data/type.data";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Datepicker, Dropdown, Select } from "flowbite-react";
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { addCartItem, addOrderHistory, setCartItem } from "@/redux/reducer/appslice";
+import {
+  addCartItem,
+  addOrderHistory,
+  setCartItem,
+} from "@/redux/reducer/appslice";
 import { useRouter } from "next/router";
 import ModalCustom from "../common/Modal";
 
 const Checkout = () => {
   const dispatch = useAppDispatch();
-  const [cartData, setCartData] = useState<TProducts>();
-  const [deliveryDate,setDeliveryDate] = useState<any>()
-  const [deliveryTime,setDeliveryTime] = useState()
+  const [deliveryDate, setDeliveryDate] = useState<any>();
+  const [deliveryTime, setDeliveryTime] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const { data: session } = useSession();
-  const [visible,setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
   const { cart } = useAppSelector((state) => state.app);
   const { user } = useAppSelector((state) => state.user);
-  const router = useRouter()
+  const router = useRouter();
 
   let subtotal = 0;
   cart.forEach((element) => {
@@ -28,47 +31,44 @@ const Checkout = () => {
   let deliveryCharge = subtotal > 1000 ? 0 : 50;
   let total = subtotal + taxtAmount + deliveryCharge;
 
-
-  const orderConfirm =()=>{
-   console.log(deliveryDate == "undefined","date..")
-    if(!deliveryDate|| !deliveryTime){
-      console.log(deliveryDate,deliveryTime)
-      setVisible(true)
-    }else{
-      const orderItem : TOrderHistory ={
-        cart:cart, 
-        subtotal:subtotal,
-        taxtAmount:taxtAmount,
-        total:total,
-        deliveryCharge:deliveryCharge,
-        deliveryDate:deliveryDate,
-        deliveryTime:deliveryTime,
-        totalItem:cart?.length
-      }
-      
-      dispatch(addOrderHistory(orderItem))
-      dispatch(setCartItem([]))
-
-      router.push("/success")
+  const orderConfirm = () => {
+    if (!deliveryDate || !deliveryTime) {
+      setVisible(true);
+      console.log("if block print")
+    } else {
+      setIsLoading(true)
+      setTimeout(()=>{
+        const orderItem: TOrderHistory = {
+          cart: cart,
+          subtotal: subtotal,
+          taxtAmount: taxtAmount,
+          total: total,
+          deliveryCharge: deliveryCharge,
+          deliveryDate: deliveryDate,
+          deliveryTime: deliveryTime,
+          totalItem: cart?.length,
+        };
+        dispatch(addOrderHistory(orderItem));
+        dispatch(setCartItem([]));
+        setIsLoading(false)
+        router.push("/success");
+      },1000)
     }
-   
-  }
-  const handleClose =()=>{
-     setVisible(false)
-  }
-  const handleInputChange = (e:any) => {
+  };
+
+  const handleClose = () => {
+    setVisible(false);
+  };
+  const handleInputChange = (e: any) => {
     const value = e.target.value;
-    console.log(value);
     setDeliveryTime(value);
   };
 
-
-useEffect(()=>{
-  if(cart.length == 0){
-    router.push("/")
-  }
-
-},[cart])
+  useEffect(() => {
+    if (cart.length == 0) {
+      router.push("/");
+    }
+  }, [cart]);
 
   return (
     <div className="mx-4 md:mx-20 lg:mx-60 my-8">
@@ -97,28 +97,21 @@ useEffect(()=>{
         Fastest Shipping (Get product delivery within 30 mins) Active from 08:00
         AM to 10:00 PM.
       </p>
-      <p className=" mt-4 mb-2">Please Select prefared delivery date and time</p>
+      <p className=" mt-4 mb-2">
+        Please Select prefared delivery date and time
+      </p>
       <div className="flex justify-between">
         <div>
-         
-          {/* <Datepicker
-            language="en"
-            labelTodayButton="Hoje"
-            labelClearButton="Limpar"
-            onChange={(date)=>console.log(date)}
-          /> */}
-
-<input
-      type="date"
-      value={deliveryDate}
-      onChange={(e) => setDeliveryDate(e.target.value)}
-    />
-          
+          <input
+            type="date"
+            value={deliveryDate}
+            onChange={(e) => setDeliveryDate(e.target.value)}
+            className="rounded-md text-sm "
+          />
         </div>
         <div>
-         
-          <Select onChange={handleInputChange}>
-            <option >Select time slot</option>
+          <Select onChange={handleInputChange} className="rounded-md text-sm ">
+            <option>Select time slot</option>
             <option value={"8-10am"}>08 AM - 10 AM</option>
             <option value={"10-12am"}>10 AM - 12 AM</option>
             <option value={"12-2pm"}>12 AM - 02 PM</option>
@@ -131,17 +124,26 @@ useEffect(()=>{
       </div>
       <div className="my-6">
         <p className="text-xl font-bold">Shipping Address</p>
-        <p className=" mt-2 text-sm">{user?.address || "70, North Manda, Mugda, Dhaka-1214"}</p>
+        <p className=" mt-2 text-sm">
+          {user?.address || "70, North Manda, Mugda, Dhaka-1214"}
+        </p>
         <p className="text-sm">Contact name - {user?.name}</p>
-        <p className="text-sm">Contact phone- {user?.phone ||" 01674493677"} </p>
+        <p className="text-sm">
+          Contact phone- {user?.phone || " 01674493677"}{" "}
+        </p>
       </div>
-      <motion.button  onClick={orderConfirm} whileTap={{scale:.9}} className="bg-sky-200 w-full rounded-md hover:bg-sky-300 text-lg font-bold p-2 ">Confirm Order</motion.button>
-     <ModalCustom show={visible} onClose={handleClose}>
-       <div>
-          <button onClick={handleClose} className="float-right">Close</button>
+      <motion.button
+        onClick={orderConfirm}
+        whileTap={{ scale: 0.9 }}
+        className="bg-sky-200 w-full mb-2 rounded-md hover:bg-sky-300 text-lg font-bold p-2 "
+      >
+       {isLoading ? "loading..." : "Confirm Order"}
+      </motion.button>
+      <ModalCustom show={visible} onClose={handleClose} header="Date and Time">
+        <div className="p-6 lg:p-8">
           <p>Please Select delivery date and time</p>
-       </div>    
-     </ModalCustom>
+        </div>
+      </ModalCustom>
     </div>
   );
 };
