@@ -1,4 +1,4 @@
-import { TOrderHistory, TProducts } from "@/data/type.data";
+import { TOrderHistory, TProduct } from "@/data/type.data";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Datepicker, Dropdown, Select } from "flowbite-react";
 import { useSession } from "next-auth/react";

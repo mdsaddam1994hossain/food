@@ -1,5 +1,5 @@
 
-export interface TProducts {
+export interface TProduct {
     id:number,
     name:string,
     price:number,
@@ -11,7 +11,7 @@ export interface TProducts {
 }
 
 export interface TOrderHistory{
-    cart : TProducts[],
+    cart : TProduct[],
     subtotal:number;
     taxtAmount:number;
     total:number;

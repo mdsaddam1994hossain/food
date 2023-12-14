@@ -1,11 +1,15 @@
 import useNotification from "@/hooks/Notification";
 import { useAppSelector } from "@/redux/hooks";
 import { signOut, useSession } from "next-auth/react";
+import { motion } from "framer-motion";
+import { IoIosArrowForward } from "react-icons/io";
 
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const Profile = () => {
   const { user } = useAppSelector((state) => state.user);
+  const router = useRouter()
   const [visible,setVisible] = useState(false)
   const { setMyNotification } = useNotification();
   const { data: session } = useSession();
@@ -46,6 +50,18 @@ const Profile = () => {
       <div>
         <p>Name : {user.name}</p>
         <p>Email : {user.email}</p>
+        <div className="flex justify-between">
+          <p>Address</p>
+          <motion.button onClick={()=>router.push("/address")}>
+          <IoIosArrowForward />
+          </motion.button>
+        </div>
+        <div className="flex justify-between">
+          <p>History</p>
+          <motion.button onClick={()=>router.push("/history")}>
+          <IoIosArrowForward />
+          </motion.button>
+        </div>
       </div>
       
     </div>

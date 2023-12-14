@@ -6,7 +6,9 @@ export default function Document() {
       <Head />
       <body>
         {/* <Main /> */}
+        <main>
         <NextScript />
+        </main>
       </body>
     </Html>
   );

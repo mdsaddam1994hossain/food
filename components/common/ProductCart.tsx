@@ -1,4 +1,4 @@
-import { TProducts } from "@/data/type.data";
+import { TProduct } from "@/data/type.data";
 import Image from "next/image";
 import React, { FC, useState } from "react";
 import { motion } from "framer-motion";
@@ -8,9 +8,9 @@ import { Toast } from "flowbite-react";
 
 type Props = {
   index: number;
-  item: TProducts;
+  item: TProduct;
  
-  // onPurchase:(item:TProducts)=>void;
+  // onPurchase:(item:TProduct)=>void;
   // isLoading:boolean;
 };
 

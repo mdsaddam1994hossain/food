@@ -1,4 +1,4 @@
-import { TProducts } from "@/data/type.data";
+import { TProduct } from "@/data/type.data";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface TUser {

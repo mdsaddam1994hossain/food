@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { addCartItem } from "@/redux/reducer/appslice";
-import { TProducts } from "@/data/type.data";
+import { TProduct } from "@/data/type.data";
 
 const CartComponent = () => {
   const { cart } = useAppSelector((state) => state.app);
@@ -35,7 +35,7 @@ const CartComponent = () => {
     console.log(products, "pro");
     if (products) {
       for (let i = 0; i < products.length; i++) {
-        dispatch(addCartItem(products[i] as unknown as TProducts));
+        dispatch(addCartItem(products[i] as unknown as TProduct));
       }
       localStorage.removeItem("cart");
     }

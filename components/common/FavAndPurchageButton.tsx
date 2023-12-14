@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { MdOutlineFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
-import { TProducts } from "@/data/type.data";
+import { TProduct } from "@/data/type.data";
 import { addCartItem } from "@/redux/reducer/appslice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import useNotification from "@/hooks/Notification";
 
 type Props = {
-  item: TProducts;
+  item: TProduct;
   setIsLoading: (v: boolean) => void;
 };
 const FavAndPurchageButton: FC<Props> = ({ item, setIsLoading }) => {
@@ -15,7 +15,7 @@ const FavAndPurchageButton: FC<Props> = ({ item, setIsLoading }) => {
   const { setMyNotification } = useNotification();
   const dispatch = useAppDispatch();
 
-  const onPurchase = (item: TProducts) => {
+  const onPurchase = (item: TProduct) => {
     setIsLoading(true);
     const product = cart.find((product) => product.id === item.id);
     setTimeout(() => {

@@ -1,4 +1,4 @@
-import { TProducts } from "@/data/type.data";
+import { TProduct } from "@/data/type.data";
 import React from "react";
 import { motion } from "framer-motion";
 import { RiDeleteBin2Fill } from "react-icons/ri";
@@ -11,7 +11,7 @@ import {
 import useNotification from "@/hooks/Notification";
 
 type Props = {
-  item: TProducts;
+  item: TProduct;
 };
 const CartDesign: React.FC<Props> = ({ item }) => {
   const { cart } = useAppSelector((state) => state.app);

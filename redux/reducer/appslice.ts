@@ -1,9 +1,9 @@
-import { TOrderHistory, TProducts } from "@/data/type.data";
+import { TOrderHistory, TProduct } from "@/data/type.data";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type InitialState = {
   mobile: boolean;
-  cart: TProducts[] | [];
+  cart: TProduct[] | [];
   orderHistory: TOrderHistory[];
 };
 
@@ -20,7 +20,7 @@ const appSlice = createSlice({
     setMobile: (state, action: PayloadAction<boolean>) => {
       state.mobile = action.payload;
     },
-    addCartItem: (state, action: PayloadAction<TProducts>) => {
+    addCartItem: (state, action: PayloadAction<TProduct>) => {
       state.cart = [...state.cart, action.payload];
     },
     setCartItem:(state,action:PayloadAction<[]>)=>{

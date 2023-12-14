@@ -1,7 +1,7 @@
-import { TProducts } from "./type.data";
+import { TProduct } from "./type.data";
 
 
-export const ProductsData : TProducts[] =[
+export const ProductsData : TProduct[] =[
     {
      id:1,
      name:"Pizza",
