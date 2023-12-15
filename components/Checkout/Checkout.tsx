@@ -31,6 +31,11 @@ const Checkout = () => {
   let deliveryCharge = subtotal > 1000 ? 0 : 50;
   let total = subtotal + taxtAmount + deliveryCharge;
 
+  const today = new Date().toISOString().split('T')[0];
+  const sixDaysAgo = new Date();
+    sixDaysAgo.setDate(sixDaysAgo.getDate() + 6);
+  const maxDay = sixDaysAgo.toISOString().split('T')[0];
+
   const orderConfirm = () => {
     if (!deliveryDate || !deliveryTime) {
       setVisible(true);
@@ -107,6 +112,8 @@ const Checkout = () => {
             value={deliveryDate}
             onChange={(e) => setDeliveryDate(e.target.value)}
             className="rounded-md text-sm "
+            min={today}
+      max={maxDay}
           />
         </div>
         <div>
