@@ -41,8 +41,9 @@ const Checkout = () => {
       setVisible(true);
       console.log("if block print")
     } else {
-      setIsLoading(true)
-      setTimeout(()=>{
+      console.log("else block run")
+      // setIsLoading(true)
+      // setTimeout(()=>{
         const orderItem: TOrderHistory = {
           cart: cart,
           subtotal: subtotal,
@@ -55,9 +56,9 @@ const Checkout = () => {
         };
         dispatch(addOrderHistory(orderItem));
         dispatch(setCartItem([]));
-        setIsLoading(false)
+        // setIsLoading(false)
         router.push("/success");
-      },1000)
+      // },1000)
     }
   };
 

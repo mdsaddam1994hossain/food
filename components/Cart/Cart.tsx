@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CartDesign from "./CartDesign";
 import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
@@ -9,6 +9,7 @@ import { TProduct } from "@/data/type.data";
 
 const CartComponent = () => {
   const { cart } = useAppSelector((state) => state.app);
+  const [loading,setLoading] = useState(false)
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { data: session } = useSession();
@@ -21,7 +22,11 @@ const CartComponent = () => {
 
   const onCheckout = () => {
     if (session) {
-      router.push("/checkout");
+       setLoading(true)
+       setTimeout(()=>{
+        router.push("/checkout");
+        setLoading(false)
+       },1000)
     } else {
      localStorage.setItem("cart", JSON.stringify(cart));
       const callbackUrl = router.asPath;
@@ -58,7 +63,7 @@ const CartComponent = () => {
             whileTap={{ scale: 0.9 }}
             className="w-full bg-sky-200 text-lg font-semibold h-12 my-6 rounded-md"
           >
-            Checkout
+           {loading ? "loading..." : "Checkout"}  
           </motion.button>
         </div>
       ) : (
