@@ -33,6 +33,8 @@ const Profile = () => {
     setVisible(false);
   };
 
+  console.log(user)
+
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setTempUser((prevUser) => ({

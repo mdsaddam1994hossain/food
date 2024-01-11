@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import { useAppSelector } from "@/redux/hooks";
 import { Badge } from "flowbite-react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 
 const Header = () => {
   const {cart} = useAppSelector((state)=>state.app)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
   const router = useRouter()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -50,12 +52,20 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/profile"
+                {session ? 
+                 <Link
+                 href="/profile"
+                 className="text-gray-300 hover:text-white"
+               >
+                 Profile
+               </Link> :
+                 <Link
+                
+                  href={`/auth/login?callbackUrl=${router.asPath}`}
                   className="text-gray-300 hover:text-white"
                 >
-                  Profile
-                </Link>
+                  Login
+                </Link>}
               </li>
             </ul>
           </nav>
